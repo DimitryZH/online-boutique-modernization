@@ -52,3 +52,61 @@ azure-argocd-online-shop/
 └── assets/
     ├── gitops-architecture-diagram.png
     └── argocd-ui-screenshot.png       
+```
+ ###  Argo CD Installation
+
+```bash
+ kubectl create namespace argocd
+kubectl apply -n argocd \
+  -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+
+### Access Argo CD UI
+```bash
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
+Default credentials:
+```bash
+username: admin
+password: $(kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d)
+```
+###  Deploy App of Apps (bootstrap Argo CD)
+```bash
+kubectl apply -f projects/online-boutique-project.yaml -n argocd
+```
+This triggers deployment of all defined child applications under apps/.
+
+### Argo CD UI Preview
+Below is a snapshot of Argo CD’s web UI showing the deployed applications.
+
+
+The `online-boutique-project` contains the `boutique-kustomize` child application.
+
+Sync status and health are automatically displayed.
+
+Each change in this repo gets reflected in AKS through continuous sync.
+
+![Multi-Repo GitOps Setup Diagram](./assets/argocd-ui-screenshot.png)
+
+### Results
+Once all resources are provisioned via Terraform and apps are synced via Argo CD:
+
+- Microservices are deployed to AKS.
+
+- Argo CD provides continuous delivery with full visibility.
+
+### Conclusions
+
+This GitOps setup is:
+
+- Modular: Clean separation of infrastructure, code, and deployment logic.
+
+- Production-ready: Supports secure secrets management and GitOps workflows.
+
+- Scalable: Easily extendable for more apps, environments, or clusters.
+
+For future enhancements, consider integrating:
+
+- Azure Key Vault for secure secret injection
+
+- Automated CI pipelines for building and pushing images to ACR
