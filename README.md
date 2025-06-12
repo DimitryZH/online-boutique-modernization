@@ -35,6 +35,44 @@ The following diagram represents the interaction between these components:
 - Container images are stored in Docker Hub, built separately.
 - Infrastructure like AKS is provisioned via Terraform.
 
+## Cloud Migration & Cost Effectiveness
+
+This project simulates a cloud migration scenario: moving the Online Boutique demo from Google Kubernetes Engine (GKE) to Azure Kubernetes Service (AKS).
+
+The migration is driven by real-world DevOps and business factors:
+
+- **Platform Alignment**: Many organizations prefer consolidating infrastructure in Azure for closer integration with Azure DevOps, Active Directory, and Microsoft 365 services.
+
+- **Cost Optimization**:  
+  AKS and GKE are both fully managed Kubernetes services, but they differ in pricing models — which can impact overall TCO (Total Cost of Ownership):
+
+  **Control Plane Costs:**
+  - **AKS**: Offers a free control plane — no additional hourly charge.
+  - **GKE**: Charges $0.10/hour per cluster for the control plane (Standard mode).
+
+  **GKE Autopilot Mode:**
+  - Autopilot introduces a different pricing model, where charges are based on vCPU and memory usage for pods — in addition to the control plane fee.
+  - While this offers granularity and optimization for certain workloads, it may lead to higher costs for steady or predictable traffic.
+
+  **Worker Nodes:**
+  - Both AKS and GKE charge for the underlying VM instances that power worker nodes.
+
+  **Other Services:**
+  - Both providers charge separately for storage, load balancers, networking, and ingress controllers.
+
+  **Summary:**
+  - **AKS is generally more cost-effective** for many use cases, particularly smaller clusters or those not needing specialized GKE features.
+  - **GKE** offers more flexibility (e.g., Autopilot) that might be beneficial in dynamic or unpredictable environments, but comes with a premium.
+
+  > In this context, migrating the Online Boutique app to AKS helps reduce infrastructure costs while maintaining scalability, security, and full GitOps automation.
+
+- **Ecosystem Integration**: Azure-native tools like Azure Monitor, Key Vault, and Container Registry enhance visibility, security, and deployment speed.
+
+- **Operational Consistency**: Terraform and Argo CD provide reproducible, declarative infrastructure and application management — enabling cross-cloud consistency and portability.
+
+
+
+
 
 ## Part 2: `azure-argocd-online-shop/` – Argo CD GitOps Repository
 
