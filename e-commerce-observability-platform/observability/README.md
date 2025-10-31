@@ -40,11 +40,46 @@ helm upgrade grafana-k8s-monitoring grafana/k8s-monitoring `\
   --set opencost.enabled=true
 ```
 
+### Example: Helm install output
+
+Below is a sample CLI output after installing revision 1 of the monitoring Helm chart.  
+![Helm install output (revision 1)](assets/helm-monitoring-installed.png)
+
+This output confirms successful deployment of the Grafana Cloud Kubernetes Monitoring stack and provides a reference for expected installation logs.
+
+### Monitoring namespace — Helm releases (Lens)
+
+Below is a sample screenshot from Lens showing Helm releases deployed in the `monitoring` namespace.
+
+![Monitoring namespace Helm releases (Lens)](assets/monitoring-helm-releases.png)
+
+Use this view to quickly verify installed release names (for example: `grafana-k8s-monitoring`, `opencost`) and their namespaces/versions. Actual release names and versions may vary depending on your chart values and install target (`monitoring` vs `grafana`).
+
+### Monitoring namespace — sample containers (Lens)
+
+Below is a sample screenshot from Lens showing containers deployed in the `monitoring` namespace.
+
+![Monitoring namespace containers (Lens)](assets/monitoring-containers.png)
+
+Use this view to quickly verify expected container names and counts (for example: alloy-*, node-exporter, kube-state-metrics, kepler, loki). Actual pod names and replica counts may vary depending on chart values and whether you installed into `monitoring` or `grafana` namespace.
+
 ---
 
 ## Status summary
 
-Below is a concise summary of the monitoring components and their roles. 
+Below is a concise summary of the monitoring components and their roles deployed in your Kubernetes cluster via Grafana Cloud k8s-monitoring v3.5.6. 
+
+Review the status of deployed components in Grafana Cloud by navigating to your Stack Overview:
+- Home
+- Observability
+- Kubernetes 
+- Configuration
+- Metrics Status tab
+
+A screenshot showing component status (online/offline) and health can be found here:
+![Grafana Cloud K8s monitoring status](assets/grafana-cloud-configuration-metrics-status.png)
+
+The Metrics status view helps verify which collectors are active and sending data to Grafana Cloud. Refer to the detailed component sections below for expected status of each component.
 
 
 ### Online components
@@ -116,7 +151,7 @@ Below is a concise summary of the monitoring components and their roles.
 
 - Recording rules are managed in Grafana Cloud (Mimir) rather than locally in the Helm chart — maintain them from Grafana Cloud.
 - Alloy agents auto-update configuration from Grafana Cloud.
-- Watch Grafana Cloud free-tier limits for metrics/log retention.
+- Watch Grafana Cloud limits for metrics/log retention.
 - Consider enabling OpenCost when you need per-namespace or per-workload cost visibility.
 
 ---
