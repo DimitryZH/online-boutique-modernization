@@ -20,6 +20,26 @@ This document summarizes the Kubernetes monitoring components deployed in the cl
 - Grafana Cloud Kubernetes Monitoring v2 (Helm chart 3.5.6)
 - A `values.yaml` exported from your Grafana Cloud stack (or customized values file)
 
+### Values file template
+
+Use the values.yaml in this folder: [./values.yaml](./values.yaml) 
+
+ Replace the placeholders before installing.
+
+```yaml
+auth:
+    type: basic
+    username: "<your_username>"
+    password: "<your_password>"
+
+env:
+    - name: CLUSTER_NAME
+        value: "<your_cluster>"
+```
+
+Note: Keep credentials out of source control — use a Kubernetes Secret or a secrets manager for production.
+
+
 ## Install / Upgrade (Helm)
 
 Add the Grafana Helm repo, update, then install/upgrade the k8s-monitoring chart. Example:
@@ -43,6 +63,7 @@ helm upgrade grafana-k8s-monitoring grafana/k8s-monitoring `\
 ### Example: Helm install output
 
 Below is a sample CLI output after installing revision 1 of the monitoring Helm chart.  
+
 ![Helm install output (revision 1)](assets/helm-monitoring-installed.png)
 
 This output confirms successful deployment of the Grafana Cloud Kubernetes Monitoring stack and provides a reference for expected installation logs.
