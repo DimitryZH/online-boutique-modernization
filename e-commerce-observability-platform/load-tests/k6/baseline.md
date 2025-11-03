@@ -58,7 +58,10 @@ http_req_duration..: avg=742.68ms p(90)=1.39s p(95)=1.5s
 http_req_failed....: 0.00%
 vus...............: max=30
 ```
- k6-grafana-local-test.png
+
+[![k6 Grafana Local Test](./k6-grafana-local-test.png)](./k6-grafana-local-test.png)
+
+*Figure: k6 Grafana local test — click to open full-size.*
 
 
 ## Interpretation
