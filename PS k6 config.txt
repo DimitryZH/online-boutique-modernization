@@ -1,0 +1,4 @@
+PS C:\WINDOWS\system32> k6 version
+k6.exe v1.3.0 (commit/5870e99ae8, go1.25.1, windows/amd64)
+PS C:\WINDOWS\system32> k6 cloud login --token 5edd0a4f2c866d5360d16a2771853545cb4281eac02d49ac9c1e93356c5eb841
+Logged in successfully, token saved in C:\Users\zhdm7\AppData\Roaming\k6\config.json
