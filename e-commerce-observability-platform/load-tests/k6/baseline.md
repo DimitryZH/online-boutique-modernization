@@ -58,10 +58,11 @@ http_req_duration..: avg=742.68ms p(90)=1.39s p(95)=1.5s
 http_req_failed....: 0.00%
 vus...............: max=30
 ```
+*Figure: k6 Grafana local test.*
 
 [![k6 Grafana Local Test](./k6-grafana-local-test.png)](./k6-grafana-local-test.png)
 
-*Figure: k6 Grafana local test — click to open full-size.*
+
 
 
 ## Interpretation
@@ -73,8 +74,10 @@ vus...............: max=30
 
 
 ## Dashboard Reference
-For detailed metrics visualization, see:
-grafana-cloud-loadtest-realflow-03.11.25.gif
+For detailed metrics visualization, see the Grafana recording:
+
+[![Grafana Cloud Load Test — realflow (03.11.25)](./grafana-cloud-loadtest-realflow-03.11.25.gif)](./grafana-cloud-loadtest-realflow-03.11.25.gif)
+
 
 
 ## Monitoring Configuration
