@@ -2,7 +2,8 @@ import re
 from collections import defaultdict
 
 # Path to the Locust log file to analyze. Change this if your logs are named differently.
-logfile = "default_locust_test_logs.txt"
+logfile = "default_locust_test_logs.txt"   # locust_logs_highload.txt
+
 
 # Captures named groups:
 #  - method: HTTP method (GET/POST)
