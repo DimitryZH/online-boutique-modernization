@@ -1,4 +1,4 @@
-# values-minikube.yaml
+# values.yaml
 
 # =====================
 # Global Settings
@@ -144,5 +144,3 @@ prometheusOperator:
     requests:
       cpu: 100m
       memory: 128Mi
-
-              
