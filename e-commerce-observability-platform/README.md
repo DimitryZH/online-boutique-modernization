@@ -10,7 +10,7 @@ This solution uses the **Grafana Cloud Kubernetes Monitoring stack (k8s-monitori
 *   **Features**: Centralized metrics, logs, and traces in Grafana Cloud, with minimal local setup.
 *   **Best for**: Production or pre-production environments where a managed, scalable solution is preferred.
 
-For more details, see the [README in `e-commerce-observability-platform/observability/grafana-cloud-stack`](e-commerce-observability-platform/observability/grafana-cloud-stack/README.md).
+For more details, see the [README in `observability/grafana-cloud-stack`](observability/grafana-cloud-stack/README.md).
 
 ### Solution 2: Local Observability with Kube Prometheus Stack
 
@@ -20,7 +20,7 @@ This solution provides a self-hosted, local observability platform running local
 *   **Features**: A full-featured observability stack running locally for development and testing.
 *   **Best for**: Local development, testing, and debugging in an isolated environment.
 
-For more details, see the [README in `e-commerce-observability-platform/observability/kube-prometheus-stack`](e-commerce-observability-platform/observability/kube-prometheus-stack/README.md).
+For more details, see the [README in `observability/kube-prometheus-stack`](observability/kube-prometheus-stack/README.md).
 
 ### Load Testing
 
